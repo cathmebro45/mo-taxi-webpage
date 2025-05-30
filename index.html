@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mo Taxi - Sundargarh</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-yellow-50 font-sans">
+  <header class="bg-yellow-600 text-white text-center py-6 shadow-md">
+    <h1 class="text-4xl font-bold">Mo Taxi</h1>
+    <p class="text-lg">ସୁନ୍ଦରଗଡ଼ର ବିଶ୍ୱାସ ଯୋଗ୍ୟ ଟ୍ୟାକ୍ସି ସେବା</p>
+    <p class="text-sm mt-1">Sundargarh's Trusted Taxi Service</p>
+  </header>
+
+  <main class="max-w-xl mx-auto p-4">
+    <section class="bg-white p-6 rounded shadow-md mt-6">
+      <h2 class="text-2xl font-semibold mb-4 text-yellow-700">Book Your Taxi Now</h2>
+      <form id="bookingForm" class="flex flex-col gap-4">
+        <input type="text" name="name" placeholder="Your Name" required class="p-2 border border-yellow-400 rounded" />
+        <input type="tel" name="phone" placeholder="Phone Number" required class="p-2 border border-yellow-400 rounded" />
+        <input type="text" name="pickup" placeholder="Pickup Location" required class="p-2 border border-yellow-400 rounded" />
+        <input type="text" name="drop" placeholder="Drop Location" required class="p-2 border border-yellow-400 rounded" />
+        <button type="submit" class="bg-yellow-600 text-white py-2 rounded hover:bg-yellow-700 transition">Book Taxi</button>
+      </form>
+      <p id="responseMessage" class="mt-3 text-green-700 font-semibold"></p>
+    </section>
+
+    <section class="mt-10 bg-white p-4 rounded shadow-md">
+      <h3 class="font-semibold mb-2 text-yellow-700">Service Area</h3>
+      <p>Currently serving within 4KM radius of Sundargarh town.</p>
+      <h3 class="font-semibold mt-4 mb-2 text-yellow-700">Contact Us</h3>
+      <p>Phone: <a href=\"tel:+919876543210\" class=\"text-yellow-600 underline\">+91 98765 43210</a></p>
+      <p>Email: <a href=\"mailto:info@motaxi.in\" class=\"text-yellow-600 underline\">info@motaxi.in</a></p>
+    </section>
+  </main>
+
+  <footer class="text-center mt-12 mb-6 text-yellow-600">
+    &copy; 2025 Mo Taxi, Sundargarh. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('bookingForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = {
+        name: form.name.value,
+        phone: form.phone.value,
+        pickup: form.pickup.value,
+        drop: form.drop.value
+      };
+      document.getElementById('responseMessage').textContent = 'Thank you, ' + data.name + '! Your booking request has been received.';
+      form.reset();
+    });
+  </script>
+</body>
+</html>
